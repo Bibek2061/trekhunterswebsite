@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trek Hunters</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    html{
+      scroll-padding-top:120px;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#f4f4f4;
+      color:#222;
+    }
+
+    header{
+      background:#0b3d2e;
+      color:white;
+      padding:18px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .logo img{
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid white;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:22px;
+      font-weight:bold;
+      font-size:17px;
+    }
+
+    nav a:hover{
+      color:gold;
+    }
+
+    .hero{
+      height:90vh;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
+        url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+    }
+
+    .hero-content{
+      background:rgba(0,0,0,0.5);
+      padding:45px;
+      border-radius:18px;
+    }
+
+    .hero h1{
+      font-size:70px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      font-size:24px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      background:gold;
+      color:black;
+      padding:14px 34px;
+      text-decoration:none;
+      border-radius:30px;
+      font-weight:bold;
+      font-size:18px;
+    }
+
+    .btn:hover{
+      background:white;
+    }
+
+    section{
+      padding:80px 50px;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:45px;
+      font-size:42px;
+      color:#0b3d2e;
+    }
+
+    .about{
+      display:flex;
+      gap:40px;
+      align-items:center;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .about img{
+      width:50%;
+      height:420px;
+      object-fit:cover;
+      border-radius:16px;
+      box-shadow:0 5px 18px rgba(0,0,0,0.25);
+    }
+
+    .about-text{
+      width:50%;
+      font-size:18px;
+      line-height:1.8;
+    }
+
+    .treks{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .card{
+      background:white;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 5px 18px rgba(0,0,0,0.18);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .trek-link{
+  text-decoration:none;
+  color:inherit;
+}
+
+    .card img{
+      width:100%;
+      height:230px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:22px;
+    }
+
+    .card-content h3{
+      color:#0b3d2e;
+      margin-bottom:12px;
+      font-size:23px;
+    }
+
+    .card-content p{
+      line-height:1.7;
+      font-size:16px;
+    }
+
+    .youtube{
+      background:#0b3d2e;
+      color:white;
+      text-align:center;
+    }
+
+    .youtube .title{
+      color:white;
+    }
+
+    .youtube p{
+      font-size:20px;
+      margin-bottom:30px;
+    }
+
+    .contact-box{
+      text-align:center;
+      font-size:20px;
+      line-height:2.1;
+    }
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:22px;
+    }
+
+    @media(max-width:900px){
+      header{
+        flex-direction:column;
+        gap:18px;
+      }
+
+      nav{
+        text-align:center;
+      }
+
+      nav a{
+        display:inline-block;
+        margin:8px;
+      }
+
+      .hero h1{
+        font-size:45px;
+      }
+
+      .about{
+        flex-direction:column;
+      }
+
+      .about img,
+      .about-text{
+        width:100%;
+      }
+
+      .treks{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="./logo.png" alt="Trek Hunters Logo">
+      <span>Trek Hunters</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#treks">Treks</a>
+      <a href="#youtube">YouTube</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Trek Hunters</h1>
+      <p>Explore Nepal, One Trail at a Time</p>
+      <a href="#treks" class="btn">Explore Treks</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="title">About Trek Hunters</h2>
+
+    <div class="about">
+      <img src="./abouttrek.png" alt="About Trek Hunters">
+
+      <div class="about-text">
+        <h3>Adventure Begins Here</h3>
+
+        <p>
+          Trek Hunters is a trekking and travel platform that shares real trekking journeys,
+          travel stories, adventure experiences, and trekking guides from Nepal.
+        </p>
+
+        <br>
+
+        <p>
+          Our mission is to inspire travelers to explore mountains, forests, lakes,
+          high passes, and hidden trekking destinations safely and responsibly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="treks">
+    <h2 class="title">Featured Treks</h2>
+
+    <div class="treks">
+
+     <a href="manaslu.html" target="_blank" class="trek-link">
+
+  <div class="card">
+
+    <img src="./Manaslucircuit.jpeg" alt="Manaslu Circuit Trek">
+
+    <div class="card-content">
+
+      <h3>Manaslu Circuit</h3>
+
+      <p>
+        Manaslu Circuit is a remote and adventurous trek around Mt. Manaslu.
+        This route offers beautiful Himalayan views, peaceful villages,
+        suspension bridges, forests, and a real mountain trekking experience.
+      </p>
+
+    </div>
+
+  </div>
+
+</a>
+
+     <a href="pachpokhari.html" style="text-decoration:none; color:inherit;">
+
+<div class="card">
+
+  <img src="./pachpokhari.jpeg" alt="Panch Pokhari Trek">
+
+  <div class="card-content">
+
+    <h3>Panch Pokhari</h3>
+
+    <p>
+      Panch Pokhari is famous for its five sacred lakes and peaceful natural beauty.
+      The trek offers green hills, cultural villages, mountain views,
+      and a calm environment away from busy city life.
+    </p>
+
+  </div>
+
+</div>
+
+</a>
+
+      <div class="card">
+        <img src="./Mardihimal.jpeg" alt="Mardi Himal Trek">
+        <div class="card-content">
+          <h3>Mardi Himal</h3>
+          <p>
+            Mardi Himal is a short and beautiful trek near the Annapurna region.
+            It is known for close views of Machhapuchhre, peaceful forest trails,
+            ridge walks, and stunning sunrise views.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./Tilicho & Thorong-La.jpeg" alt="Tilicho and Thorong-La Trek">
+        <div class="card-content">
+          <h3>Tilicho & Thorong-La</h3>
+          <p>
+            Tilicho and Thorong-La is a high-altitude adventure trek in the Annapurna region.
+            The journey includes Tilicho Lake, one of the highest lakes in the world,
+            and Thorong-La Pass with dramatic mountain landscapes.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="./kanglapass.jpeg" alt="Kang-La Pass Trek">
+        <div class="card-content">
+          <h3>Kang-La Pass</h3>
+          <p>
+            Kang-La Pass is a challenging trekking route in the Manang region.
+            It offers snowy trails, prayer flags, remote villages,
+            high mountain views, and a true Himalayan adventure experience.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="youtube" id="youtube">
+    <h2 class="title">YouTube Channel</h2>
+
+    <p>
+      Watch trekking videos, trailers, adventure vlogs,
+      and complete trekking journeys on Trek Hunters.
+    </p>
+
+    <a href="http://www.youtube.com/@TrekkHunters" target="_blank" class="btn">
+      Visit Channel
+    </a>
+  </section>
+
+  <section id="contact">
+    <h2 class="title">Contact</h2>
+
+    <div class="contact-box">
+      <p>Contact Number: 9801046426</p>
+      <p>YouTube: Trek Hunters</p>
+      <p>Location: Nepal</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Trek Hunters. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
