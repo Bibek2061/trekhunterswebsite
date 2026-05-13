@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manaslu Circuit Trek - Trek Hunters</title>
+  <title>Tilicho Lake & Thorong-La Pass - Trek Hunters</title>
   <style>
     /* Global Styles */
     *{ margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial, sans-serif; }
@@ -28,31 +28,43 @@
     .logo img{ width:50px; height:50px; border-radius:50%; border: 2px solid white; vertical-align: middle; }
     .logo span { margin-left: 10px; font-size: 22px; font-weight: bold; }
     
-    .hero{ height:50vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("./Manaslucircuit.jpeg") center/cover; display:flex; align-items:center; justify-content:center; color:white; text-align:center; }
-    .hero h1{ font-size: 40px; letter-spacing: 1px; }
+    /* HERO SECTION: Himalayan photo aba yaha mathi baschha */
+    .hero{ 
+        height:60vh; 
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("./Tilicho & Thorong-La.jpeg") center/cover; 
+        display:flex; 
+        align-items:center; 
+        justify-content:center; 
+        color:white; 
+        text-align:center; 
+    }
+    .hero h1{ font-size: 45px; letter-spacing: 2px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
     /* Content Container */
     .container{ max-width:1200px; margin:auto; padding:20px; }
-    .box{ background:white; padding:30px; border-radius:15px; margin-bottom:25px; box-shadow:0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0b3d2e; }
-
-    /* Same Height Logic */
-    .flex-container { display: flex; flex-wrap: wrap; gap: 25px; align-items: stretch; } /* stretch ensures equal height */
+    
+    /* Equal Height Flexbox */
+    .flex-container { display: flex; flex-wrap: wrap; gap: 25px; align-items: stretch; }
     .flex-box { background:white; padding:30px; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0b3d2e; flex: 1; min-width: 350px; display: flex; flex-direction: column; }
+
+    .box{ background:white; padding:30px; border-radius:15px; margin-bottom:25px; box-shadow:0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0b3d2e; }
 
     h2{ color:#0b3d2e; margin-bottom:15px; font-size:26px; }
     ul { list-style: none; }
     .itinerary-list li { border-bottom: 1px dashed #eee; padding: 10px 0; font-size: 16px; }
     .itinerary-list li strong { color: #0b3d2e; display: block; }
     
-    /* Map Container Fix */
-    .map-wrapper { flex-grow: 1; display: flex; align-items: center; justify-content: center; margin-top: 15px; }
-    .map-img { width: 100%; height: 100%; max-height: 550px; border-radius: 12px; border: 1px solid #ddd; object-fit: cover; }
+    /* Map Container */
+    .map-wrapper { flex-grow: 1; display: flex; align-items: center; justify-content: center; margin-top: 15px; overflow: hidden; }
+    .map-img { width: 100%; height: auto; max-height: 550px; border-radius: 12px; border: 1px solid #ddd; object-fit: contain; }
 
     footer{ background:#111; color:white; text-align:center; padding:25px; margin-top:40px; font-size: 14px; }
 
     @media(max-width: 768px) {
         .flex-box { flex: 1 1 100%; }
         header { padding: 15px 20px; }
+        .hero h1 { font-size: 30px; }
+        .hero { height: 40vh; }
     }
   </style>
 </head>
@@ -75,7 +87,7 @@
 </header>
 
 <section class="hero">
-    <h1>Manaslu Circuit Trek Guide</h1>
+    <h1>Tilicho Lake & Thorong-La Pass</h1>
 </section>
 
 <div class="container">
@@ -89,64 +101,57 @@
     <!-- Overview & Cost Tab -->
     <div id="overview" class="tab-content show">
         <div class="box">
-            <h2>About the Trek</h2>
-            <p>The Manaslu Circuit Trek is a stunning 14 to 18-day journey around the world's 8th highest mountain. It offers a unique combination of rich cultural heritage, high-altitude landscapes, and the challenging Larkya La Pass (5,106m).</p>
+            <h2>About the Adventure</h2>
+            <p>Tilicho Lake (4,919m) is one of the highest lakes in the world. Combined with the iconic Thorong-La Pass (5,416m), it is a legendary trek.</p>
         </div>
         <div class="box">
-            <h2>Detailed Cost Breakdown</h2>
+            <h2>Quick Information</h2>
             <ul class="itinerary-list">
-                <li><strong>Permits:</strong> ACAP & MCAP (approx. Rs. 3,000 each) plus RAP.</li>
-                <li><strong>Accommodation:</strong> Average Rs. 800 - Rs. 1,500 per night.</li>
-                <li><strong>Food & Water:</strong> Budget Rs. 3,500 - Rs. 5,000 per day.</li>
+                <li><strong>Max Altitude:</strong> 5,416m (Thorong-La Pass)</li>
+                <li><strong>Difficulty:</strong> Strenuous</li>
+                <li><strong>Daily Budget:</strong> Rs. 4,500 - Rs. 6,000</li>
             </ul>
         </div>
     </div>
 
-    <!-- Full Itinerary & Map Tab (SIDE BY SIDE FIX) -->
+    <!-- Full Itinerary & Map Tab -->
     <div id="itinerary" class="tab-content">
         <div class="flex-container">
             
-            <!-- Left: Itinerary -->
             <div class="flex-box">
-                <h2>14-Day Full Itinerary</h2>
+                <h2>12-Day Full Itinerary</h2>
                 <ul class="itinerary-list">
-                    <li><strong>Day 01:</strong> Drive Kathmandu to Machha Khola</li>
-                    <li><strong>Day 02:</strong> Trek to Jagat</li>
-                    <li><strong>Day 03:</strong> Trek to Deng</li>
-                    <li><strong>Day 04:</strong> Trek to Namrung</li>
-                    <li><strong>Day 05:</strong> Trek to Lho - View of Mt. Manaslu</li>
-                    <li><strong>Day 06:</strong> Trek to Samagaun</li>
-                    <li><strong>Day 07:</strong> Acclimatization Day (MBC Trip)</li>
-                    <li><strong>Day 08:</strong> Trek to Samdo</li>
-                    <li><strong>Day 09:</strong> Trek to Dharamsala</li>
-                    <li><strong>Day 10:</strong> Larkya La Pass (5,106m) to Bimthang</li>
-                    <li><strong>Day 11:</strong> Trek to Tilije</li>
-                    <li><strong>Day 12:</strong> Trek to Dharapani</li>
-                    <li><strong>Day 13-14:</strong> Drive back to Kathmandu</li>
+                    <li><strong>Day 1:</strong> Drive to Dharapani</li>
+                    <li><strong>Day 2:</strong> Trek to Chame</li>
+                    <li><strong>Day 3:</strong> Trek to Upper Pisang</li>
+                    <li><strong>Day 4:</strong> Trek to Manang</li>
+                    <li><strong>Day 5:</strong> Rest Day in Manang</li>
+                    <li><strong>Day 6:</strong> Trek to Siri Kharka</li>
+                    <li><strong>Day 7:</strong> Visit Tilicho Lake & Back</li>
+                    <li><strong>Day 8:</strong> Trek to Yak Kharka</li>
+                    <li><strong>Day 9:</strong> Trek to Thorong Phedi</li>
+                    <li><strong>Day 10:</strong> Cross Thorong-La to Muktinath</li>
+                    <li><strong>Day 11:</strong> Trek/Drive to Jomsom</li>
+                    <li><strong>Day 12:</strong> Return to Pokhara/KTM</li>
                 </ul>
             </div>
 
-            <!-- Right: Map (NOW MATCHES HEIGHT) -->
             <div class="flex-box" style="text-align: center;">
                 <h2>Route Map</h2>
-                <p>Official trekking route visualization.</p>
+                <p>The epic high-altitude loop.</p>
                 <div class="map-wrapper">
-                    <img src="./manaslu-map.jpeg" alt="Manaslu Map" class="map-img">
+                    <!-- Roadmap image aba yaha tala baschha -->
+                    <img src="./tilicho-map.jpeg" alt="Tilicho & Thorong-La Route Map" class="map-img">
                 </div>
-                <p style="margin-top: 15px; font-size: 13px; color: #666;">(Circuit trail from Machha Khola to Dharapani)</p>
             </div>
 
         </div>
     </div>
 
-    <!-- Video Link Tab -->
     <div id="watch" class="tab-content">
         <div class="box" style="text-align: center; padding: 60px 20px;">
-            <h2>Watch our Manaslu Journey!</h2>
-            <p>Click below to watch the cinematic experience on YouTube.</p>
-            <a href="https://youtu.be/Ord1q35eaKo?si=JTq1pKGE-PgFebJc" target="_blank" class="yt-btn">
-                ▶ Open in YouTube
-            </a>
+            <h2>Watch our Journey</h2>
+            <a href="https://www.youtube.com/@TrekHunters" target="_blank" class="yt-btn">▶ Trek Hunters YouTube</a>
         </div>
     </div>
 

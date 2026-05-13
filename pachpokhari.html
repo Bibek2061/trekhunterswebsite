@@ -3,358 +3,183 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pachpokhari Solukhumbu Trek</title>
-
+  <title>Pachpokhari Solukhumbu - Trek Hunters</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+    /* Global Styles */
+    *{ margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body{ background:#f9f9f9; color:#333; line-height:1.8; }
 
-    body{
-      background:#f4f4f4;
-      color:#222;
-      line-height:1.7;
-    }
+    /* Tab Switch Logic */
+    .tab-content { display: none; }
+    .tab-content.show { display: block; animation: fadeIn 0.4s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    header{
-      background:#0b3d2e;
-      color:white;
-      padding:22px 50px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+    /* Navigation & Buttons */
+    .tab-container { display: flex; gap: 12px; margin: 25px 0; flex-wrap: wrap; }
+    .tab-btn { padding: 12px 24px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; background: #e0e0e0; border-radius: 8px; transition: 0.3s; }
+    .tab-btn.active { background: #0b3d2e; color: white; box-shadow: 0 4px 10px rgba(11, 61, 46, 0.2); }
+    
+    /* YouTube Button Style */
+    .yt-btn { display: inline-block; padding: 15px 35px; background: #FF0000; color: white; text-decoration: none; font-weight: bold; border-radius: 10px; margin-top: 20px; transition: 0.3s; }
+    .yt-btn:hover { background: #cc0000; transform: translateY(-2px); }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:26px;
-      font-weight:bold;
-    }
+    /* Layout Header & Hero */
+    header{ background:#0b3d2e; color:white; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position: sticky; top:0; z-index:100; }
+    .logo img{ width:50px; height:50px; border-radius:50%; border: 2px solid white; vertical-align: middle; }
+    .logo span { margin-left: 10px; font-size: 22px; font-weight: bold; }
+    
+    .hero {
+    height: 50vh;
+    background: url("./pachpokhari.jpeg") center/cover; /* Gradient hataeko */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
 
-    .logo img{
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid white;
-    }
+    /* Content Container */
+    .container{ max-width:1200px; margin:auto; padding:20px; }
+    
+    /* Equal Height Flexbox */
+    .flex-container { display: flex; flex-wrap: wrap; gap: 25px; align-items: stretch; }
+    .flex-box { background:white; padding:30px; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0b3d2e; flex: 1; min-width: 350px; display: flex; flex-direction: column; }
 
-    header a{
-      color:white;
-      text-decoration:none;
-      font-weight:bold;
-    }
+    .box{ background:white; padding:30px; border-radius:15px; margin-bottom:25px; box-shadow:0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0b3d2e; }
 
-    .hero{
-      height:80vh;
-      background:
-      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
-      url("./pachpokhari.jpeg");
+    h2{ color:#0b3d2e; margin-bottom:15px; font-size:26px; }
+    ul { list-style: none; }
+    .itinerary-list li { border-bottom: 1px dashed #eee; padding: 10px 0; font-size: 16px; }
+    .itinerary-list li strong { color: #0b3d2e; display: block; }
+    
+    /* Map Container Fix */
+    .map-wrapper { flex-grow: 1; display: flex; align-items: center; justify-content: center; margin-top: 15px; }
+    .map-img { width: 100%; height: 100%; max-height: 550px; border-radius: 12px; border: 1px solid #ddd; object-fit: cover; }
 
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:white;
-    }
+    footer{ background:#111; color:white; text-align:center; padding:25px; margin-top:40px; font-size: 14px; }
 
-    .hero h1{
-      font-size:60px;
-      margin-bottom:15px;
-    }
-
-    .hero p{
-      font-size:22px;
-    }
-
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:60px 30px;
-    }
-
-    .box{
-      background:white;
-      padding:30px;
-      border-radius:16px;
-      margin-bottom:30px;
-      box-shadow:0 5px 18px rgba(0,0,0,0.12);
-    }
-
-    h2{
-      color:#0b3d2e;
-      margin-bottom:18px;
-      font-size:32px;
-    }
-
-    p{
-      font-size:18px;
-      margin-bottom:15px;
-    }
-
-    ul{
-      padding-left:25px;
-    }
-
-    li{
-      margin-bottom:10px;
-      font-size:17px;
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:15px;
-    }
-
-    th, td{
-      border:1px solid #ddd;
-      padding:12px;
-      text-align:left;
-    }
-
-    th{
-      background:#0b3d2e;
-      color:white;
-    }
-
-    .map-img{
-      width:100%;
-      border-radius:16px;
-      margin-top:20px;
-      box-shadow:0 5px 18px rgba(0,0,0,0.2);
-    }
-
-    .btn{
-      display:inline-block;
-      background:gold;
-      color:black;
-      padding:14px 30px;
-      border-radius:30px;
-      text-decoration:none;
-      font-weight:bold;
-      margin-top:15px;
-    }
-
-    .btn:hover{
-      background:#0b3d2e;
-      color:white;
-    }
-
-    footer{
-      background:#111;
-      color:white;
-      text-align:center;
-      padding:22px;
-      margin-top:40px;
-    }
-
-    @media(max-width:800px){
-      header{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      .hero h1{
-        font-size:40px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
+    @media(max-width: 768px) {
+        .flex-box { flex: 1 1 100%; }
+        header { padding: 15px 20px; }
+        .hero h1 { font-size: 30px; }
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="./logo.png" alt="Trek Hunters Logo">
-      <span>Trek Hunters</span>
+<header style="background:#0b3d2e; color:white; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position: sticky; top:0; z-index:100;">
+    <div class="logo" style="display: flex; align-items: center;">
+        <img src="./logo.png" alt="Trek Hunters" style="width:50px; height:50px; border-radius:50%; border: 2px solid white;">
+        <span style="margin-left: 10px; font-size: 22px; font-weight: bold;">Trek Hunters</span>
+    </div>
+    
+    <div style="display: flex; gap: 12px;">
+        <a href="javascript:history.back()" style="color:white; text-decoration:none; font-weight:bold; border: 1px solid rgba(255,255,255,0.4); padding: 7px 18px; border-radius: 6px; background: rgba(255,255,255,0.1); transition: 0.3s;">
+            ← Back
+        </a>
+        <a href="index.html" style="color:white; text-decoration:none; font-weight:bold; border: 1px solid white; padding: 7px 18px; border-radius: 6px; transition: 0.3s;">
+            Home
+        </a>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Pachpokhari Solukhumbu Trek</h1>
+</section>
+
+<div class="container">
+    
+    <!-- Tab Menu -->
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview & Cost</button>
+        <button class="tab-btn" onclick="openTab(event, 'itinerary')">Full Itinerary & Map</button>
+        <button class="tab-btn" onclick="openTab(event, 'watch')">Watch Video</button>
     </div>
 
-    <a href="index.html">Back to Home</a>
-  </header>
+    <!-- Overview & Cost Tab -->
+    <div id="overview" class="tab-content show">
+        <div class="box">
+            <h2>About Pachpokhari Solukhumbu</h2>
+            <p>Pachpokhari Solukhumbu is a breathtaking alpine destination featuring five sacred lakes. Located away from crowded routes, it offers a peaceful journey through local villages, lush forests, and incredible Himalayan viewpoints at an altitude of 4,100m.</p>
+        </div>
 
-  <section class="hero">
-    <div>
-      <h1>Pachpokhari Solukhumbu Trek</h1>
-      <p>A Sacred Alpine Lake Journey in Solukhumbu</p>
-    </div>
-  </section>
-
-  <div class="container">
-
-    <div class="box">
-      <h2>About Pachpokhari Solukhumbu</h2>
-
-      <p>
-        Pachpokhari Solukhumbu is a beautiful and peaceful alpine lake destination located
-        in the Himalayan region of Nepal. The name Pachpokhari means “Five Lakes”.
-        It is known for its natural beauty, religious importance, mountain views,
-        and peaceful trekking experience.
-      </p>
-
-      <p>
-        This trek is suitable for travelers who want to explore hidden trails,
-        local villages, forests, hills, viewpoints, and sacred lakes away from
-        crowded tourist routes.
-      </p>
+        <div class="box">
+            <h2>Estimated Budget & Info</h2>
+            <ul class="itinerary-list">
+                <li><strong>Transport:</strong> Kathmandu to Salleri or Phaplu by jeep/bus.</li>
+                <li><strong>Food:</strong> Around Rs. 500 – Rs. 1,200 per meal depending on altitude.</li>
+                <li><strong>Difficulty:</strong> Moderate trek suitable for hidden trail explorers.</li>
+                <li><strong>Best Season:</strong> March–May and September–November.</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="box">
-      <h2>Quick Trek Information</h2>
+    <!-- Full Itinerary & Map Tab (Side-by-Side Fix) -->
+    <div id="itinerary" class="tab-content">
+        <div class="flex-container">
+            
+            <!-- Left: Itinerary -->
+            <div class="flex-box">
+                <h2>5-Day Full Itinerary</h2>
+                <ul class="itinerary-list">
+                    <li><strong>Day 1: Travel from Kathmandu to Salleri or Phaplu</strong></li>
+                    <li><strong>Day 2: Trek or drive towards Phaplu Danda / nearby village</strong></li>
+                    <li><strong>Day 3: Trek to Surke or camping area near Pachpokhari trail</strong></li>
+                    <li><strong>Day 4: Early morning hike to Pachpokhari and explore the lakes</strong></li>
+                    <li><strong>Day 5: Return back to Phaplu or Salleri area</strong></li>
+                </ul>
+                <p style="margin-top: 15px; font-style: italic; color: #666;">Note: Camping is highly recommended for the lake area.</p>
+            </div>
 
-      <ul>
-        <li><strong>Location:</strong> Solukhumbu, Nepal</li>
-        <li><strong>Maximum Altitude:</strong> Around 4,100m</li>
-        <li><strong>Duration:</strong> 2–4 Days from Phaplu area</li>
-        <li><strong>Difficulty:</strong> Moderate</li>
-        <li><strong>Best Season:</strong> March–May and September–November</li>
-        <li><strong>Main Attraction:</strong> Sacred Five Lakes and Himalayan views</li>
-        <li><strong>Starting Point:</strong> Phaplu / Salleri area</li>
-      </ul>
+            <!-- Right: Map (Matches Height) -->
+            <div class="flex-box" style="text-align: center;">
+                <h2>Route Map</h2>
+                <p>Visualizing the path from Salleri to the Sacred Lakes.</p>
+                <div class="map-wrapper">
+                    <img src="./pachpokhari-map.png" alt="Pachpokhari Map" class="map-img">
+                </div>
+                <p style="margin-top: 15px; font-size: 13px; color: #666;">(Route via Phaplu, Phaplu Danda, and Surke)</p>
+            </div>
+
+        </div>
     </div>
 
-    <div class="box">
-      <h2>Day-by-Day Itinerary</h2>
-
-      <ul>
-        <li>Day 1: Travel from Kathmandu to Salleri or Phaplu</li>
-        <li>Day 2: Trek or drive towards Phaplu Danda / nearby village</li>
-        <li>Day 3: Trek to Surke or camping area near Pachpokhari trail</li>
-        <li>Day 4: Early morning hike to Pachpokhari and explore the lake</li>
-        <li>Day 5: Return back to Phaplu or Salleri</li>
-      </ul>
+    <!-- Video Link Tab -->
+    <div id="watch" class="tab-content">
+        <div class="box" style="text-align: center; padding: 60px 20px;">
+            <h2>Watch our Pachpokhari Journey!</h2>
+            <p>Click the button below to watch the cinematic trek experience on our Trek Hunters YouTube channel.</p>
+            
+            <!-- Specific YouTube Link Provided -->
+            <a href="https://youtu.be/vdjTqhArnW4?si=c8BHbhzNnczJeFmx" target="_blank" class="yt-btn">
+                ▶ Open in YouTube
+            </a>
+            
+            <p style="margin-top:25px; font-size:14px; color:#777;">(This will open the video directly in your YouTube app or browser)</p>
+        </div>
     </div>
 
-    <div class="box">
-      <h2>Lodging & Accommodation</h2>
+</div>
 
-      <p>
-        Accommodation facilities are basic in this region. In lower areas like Salleri
-        and Phaplu, hotels and lodges are available. Near higher trekking areas,
-        trekkers may need basic tea houses, homestays, or camping arrangements.
-      </p>
+<footer>
+    <p>©️ 2026 Trek Hunters. All Rights Reserved. | Solukhumbu Adventures</p>
+</footer>
 
-      <table>
-        <tr>
-          <th>Place</th>
-          <th>Lodging Information</th>
-        </tr>
-
-        <tr>
-          <td>Salleri</td>
-          <td>Hotels, lodges, restaurants, and basic facilities available.</td>
-        </tr>
-
-        <tr>
-          <td>Phaplu</td>
-          <td>Comfortable lodges and local food options available.</td>
-        </tr>
-
-        <tr>
-          <td>Phaplu Danda</td>
-          <td>Basic local stay or homestay depending on availability.</td>
-        </tr>
-
-        <tr>
-          <td>Surke Area</td>
-          <td>Basic shelter or camping may be required.</td>
-        </tr>
-
-        <tr>
-          <td>Pachpokhari</td>
-          <td>Remote lake area, camping is recommended.</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="box">
-      <h2>Fooding Information</h2>
-
-      <p>
-        Food options are available in Salleri and Phaplu. During the trek,
-        simple local meals are common. Trekkers should carry snacks, water,
-        dry food, and energy items for higher sections.
-      </p>
-
-      <ul>
-        <li>Dal Bhat</li>
-        <li>Noodles</li>
-        <li>Fried Rice</li>
-        <li>Tea and Coffee</li>
-        <li>Local vegetables</li>
-        <li>Biscuits and snacks</li>
-        <li>Boiled water or hot lemon</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Pachpokhari Solukhumbu Route Map</h2>
-
-      <p>
-        This roadmap shows the route towards Pachpokhari Solukhumbu, including
-        Salleri, Phaplu, Phaplu Danda, Surke, viewpoints, and the sacred lake area.
-      </p>
-
-      <img src="./pachpokhari-map.png"
-           alt="Pachpokhari Solukhumbu Route Map"
-           class="map-img">
-    </div>
-
-    <div class="box">
-      <h2>Estimated Budget</h2>
-
-      <ul>
-        <li><strong>Transport:</strong> Kathmandu to Salleri or Phaplu by jeep/bus</li>
-        <li><strong>Food:</strong> Around Rs. 500 – Rs. 1200 per meal depending on location</li>
-        <li><strong>Accommodation:</strong> Basic hotel, lodge, homestay, or camping</li>
-        <li><strong>Guide:</strong> Recommended for remote trail safety</li>
-        <li><strong>Extra Cost:</strong> Snacks, water, power bank, and emergency items</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Travel Tips</h2>
-
-      <ul>
-        <li>Carry warm clothes because the lake area is cold.</li>
-        <li>Take raincoat and waterproof bag cover.</li>
-        <li>Carry enough water and snacks for remote sections.</li>
-        <li>Respect local culture and religious places.</li>
-        <li>Do not throw plastic or waste near the lake.</li>
-        <li>Travel with local guide if the route is unknown.</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Watch Trek Video</h2>
-
-      <p>
-        Watch trekking videos and adventure vlogs on Trek Hunters YouTube channel.
-      </p>
-
-      <a href="https://youtu.be/vdjTqhArnW4?si=c8BHbhzNnczJeFmx"
-         target="_blank"
-         class="btn">
-         Visit YouTube Channel
-      </a>
-    </div>
-
-  </div>
-
-  <footer>
-    <p>©️ 2026 Trek Hunters. All Rights Reserved.</p>
-  </footer>
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("show");
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).classList.add("show");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
 
 </body>
 </html>

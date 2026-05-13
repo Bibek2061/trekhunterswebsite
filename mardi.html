@@ -3,358 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mardi Himal Trek</title>
-
+  <title>Mardi Himal Trek - Trek Hunters</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+    /* Global Styles */
+    *{ margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+    body{ background:#f9f9f9; color:#333; line-height:1.8; }
 
-    body{
-      background:#f4f4f4;
-      color:#222;
-      line-height:1.7;
-    }
+    /* Tab Switch Logic */
+    .tab-content { display: none; }
+    .tab-content.show { display: block; animation: fadeIn 0.4s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    header{
-      background:#0b3d2e;
-      color:white;
-      padding:22px 50px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+    /* Navigation & Buttons */
+    .tab-container { display: flex; gap: 12px; margin: 25px 0; flex-wrap: wrap; }
+    .tab-btn { padding: 12px 24px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; background: #e0e0e0; border-radius: 8px; transition: 0.3s; }
+    .tab-btn.active { background: #0b3d2e; color: white; box-shadow: 0 4px 10px rgba(11, 61, 46, 0.2); }
+    
+    /* YouTube Button Style */
+    .yt-btn { display: inline-block; padding: 15px 35px; background: #FF0000; color: white; text-decoration: none; font-weight: bold; border-radius: 10px; margin-top: 20px; transition: 0.3s; }
+    .yt-btn:hover { background: #cc0000; transform: translateY(-2px); }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:26px;
-      font-weight:bold;
-    }
+    /* Layout Header & Hero */
+    header{ background:#0b3d2e; color:white; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position: sticky; top:0; z-index:100; }
+    .logo img{ width:50px; height:50px; border-radius:50%; border: 2px solid white; vertical-align: middle; }
+    .logo span { margin-left: 10px; font-size: 22px; font-weight: bold; }
+    
+    .hero{ height:50vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("./mardi.jpeg") center/cover; display:flex; align-items:center; justify-content:center; color:white; text-align:center; }
+    .hero h1{ font-size: 40px; letter-spacing: 1px; }
 
-    .logo img{
-      width:60px;
-      height:60px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid white;
-    }
+    /* Content Container */
+    .container{ max-width:1200px; margin:auto; padding:20px; }
+    
+    /* Equal Height Flexbox */
+    .flex-container { display: flex; flex-wrap: wrap; gap: 25px; align-items: stretch; }
+    .flex-box { background:white; padding:30px; border-radius:15px; box-shadow:0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0b3d2e; flex: 1; min-width: 350px; display: flex; flex-direction: column; }
 
-    header a{
-      color:white;
-      text-decoration:none;
-      font-weight:bold;
-    }
+    .box{ background:white; padding:30px; border-radius:15px; margin-bottom:25px; box-shadow:0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid #0b3d2e; }
 
-    .hero{
-      height:80vh;
-      background:
-      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
-      url("./mardi.jpeg");
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:white;
-    }
+    h2{ color:#0b3d2e; margin-bottom:15px; font-size:26px; }
+    ul { list-style: none; }
+    .itinerary-list li { border-bottom: 1px dashed #eee; padding: 10px 0; font-size: 16px; }
+    .itinerary-list li strong { color: #0b3d2e; display: block; }
+    
+    /* Map Container Fix */
+    .map-wrapper { flex-grow: 1; display: flex; align-items: center; justify-content: center; margin-top: 15px; }
+    .map-img { width: 100%; height: 100%; max-height: 550px; border-radius: 12px; border: 1px solid #ddd; object-fit: cover; }
 
-    .hero h1{
-      font-size:60px;
-      margin-bottom:15px;
-    }
+    footer{ background:#111; color:white; text-align:center; padding:25px; margin-top:40px; font-size: 14px; }
 
-    .hero p{
-      font-size:22px;
-    }
-
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:60px 30px;
-    }
-
-    .box{
-      background:white;
-      padding:30px;
-      border-radius:16px;
-      margin-bottom:30px;
-      box-shadow:0 5px 18px rgba(0,0,0,0.12);
-    }
-
-    h2{
-      color:#0b3d2e;
-      margin-bottom:18px;
-      font-size:32px;
-    }
-
-    p{
-      font-size:18px;
-      margin-bottom:15px;
-    }
-
-    ul{
-      padding-left:25px;
-    }
-
-    li{
-      margin-bottom:10px;
-      font-size:17px;
-    }
-
-    table{
-      width:100%;
-      border-collapse:collapse;
-      margin-top:15px;
-    }
-
-    th, td{
-      border:1px solid #ddd;
-      padding:12px;
-      text-align:left;
-    }
-
-    th{
-      background:#0b3d2e;
-      color:white;
-    }
-
-    .map-img{
-      width:100%;
-      border-radius:16px;
-      margin-top:20px;
-      box-shadow:0 5px 18px rgba(0,0,0,0.2);
-    }
-
-    .btn{
-      display:inline-block;
-      background:gold;
-      color:black;
-      padding:14px 30px;
-      border-radius:30px;
-      text-decoration:none;
-      font-weight:bold;
-      margin-top:15px;
-    }
-
-    .btn:hover{
-      background:#0b3d2e;
-      color:white;
-    }
-
-    footer{
-      background:#111;
-      color:white;
-      text-align:center;
-      padding:22px;
-      margin-top:40px;
-    }
-
-    @media(max-width:800px){
-      header{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      .hero h1{
-        font-size:40px;
-      }
-
-      .hero p{
-        font-size:18px;
-      }
+    @media(max-width: 768px) {
+        .flex-box { flex: 1 1 100%; }
+        header { padding: 15px 20px; }
+        .hero h1 { font-size: 30px; }
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="./logo.png" alt="Trek Hunters Logo">
-      <span>Trek Hunters</span>
+<header style="background:#0b3d2e; color:white; padding:15px 5%; display:flex; justify-content:space-between; align-items:center; position: sticky; top:0; z-index:100;">
+    <div class="logo" style="display: flex; align-items: center;">
+        <img src="./logo.png" alt="Trek Hunters" style="width:50px; height:50px; border-radius:50%; border: 2px solid white;">
+        <span style="margin-left: 10px; font-size: 22px; font-weight: bold;">Trek Hunters</span>
+    </div>
+    
+    <div style="display: flex; gap: 12px;">
+        <a href="javascript:history.back()" style="color:white; text-decoration:none; font-weight:bold; border: 1px solid rgba(255,255,255,0.4); padding: 7px 18px; border-radius: 6px; background: rgba(255,255,255,0.1); transition: 0.3s;">
+            ← Back
+        </a>
+        <a href="index.html" style="color:white; text-decoration:none; font-weight:bold; border: 1px solid white; padding: 7px 18px; border-radius: 6px; transition: 0.3s;">
+            Home
+        </a>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Mardi Himal Trek</h1>
+</section>
+
+<div class="container">
+    
+    <!-- Tab Menu -->
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="openTab(event, 'overview')">Overview & Cost</button>
+        <button class="tab-btn" onclick="openTab(event, 'itinerary')">Full Itinerary & Map</button>
+        <button class="tab-btn" onclick="openTab(event, 'watch')">Watch Video</button>
     </div>
 
-    <a href="index.html">Back to Home</a>
-  </header>
+    <!-- Overview & Cost Tab -->
+    <div id="overview" class="tab-content show">
+        <div class="box">
+            <h2>About Mardi Himal Trek</h2>
+            <p>Mardi Himal Trek is a gem in the Annapurna region, famous for its peaceful trails through rhododendron forests and up-close views of Machhapuchhre (Fishtail). Standing at 4,500m, the viewpoint offers a 360-degree Himalayan panorama that is perfect for both beginners and seasoned trekkers.</p>
+        </div>
 
-  <section class="hero">
-    <div>
-      <h1>Mardi Himal Trek</h1>
-      <p>A Beautiful Short Trek in the Annapurna Region</p>
-    </div>
-  </section>
-
-  <div class="container">
-
-    <div class="box">
-      <h2>About Mardi Himal Trek</h2>
-
-      <p>
-        Mardi Himal Trek is one of the most beautiful short treks in Nepal,
-        located in the Annapurna region. It is famous for peaceful trails,
-        green forests, mountain views, and close views of Machhapuchhre,
-        Annapurna South, and Hiunchuli.
-      </p>
-
-      <p>
-        This trek is perfect for beginners and travelers who want a short
-        Himalayan adventure with amazing scenery, village life, forest trails,
-        and sunrise views from Mardi Himal View Point.
-      </p>
+        <div class="box">
+            <h2>Quick Information & Budget</h2>
+            <ul class="itinerary-list">
+                <li><strong>Location:</strong> Kaski, Annapurna Region.</li>
+                <li><strong>Max Altitude:</strong> 4,500m (Mardi Himal View Point).</li>
+                <li><strong>Food & Stay:</strong> Approx Rs. 3,500 - Rs. 5,000 per day.</li>
+                <li><strong>Best Time:</strong> Autumn (Sept-Nov) & Spring (March-May).</li>
+            </ul>
+        </div>
     </div>
 
-    <div class="box">
-      <h2>Quick Trek Information</h2>
+    <!-- Full Itinerary & Map Tab -->
+    <div id="itinerary" class="tab-content">
+        <div class="flex-container">
+            
+            <!-- Left: Itinerary -->
+            <div class="flex-box">
+                <h2>6-Day Full Itinerary</h2>
+                <ul class="itinerary-list">
+                    <li><strong>Day 1:</strong> Drive Pokhara to Kande & Trek to Forest Camp</li>
+                    <li><strong>Day 2:</strong> Trek from Forest Camp to Low Camp</li>
+                    <li><strong>Day 3:</strong> Trek from Low Camp to High Camp</li>
+                    <li><strong>Day 4:</strong> Sunrise hike to Mardi View Point & return to High Camp</li>
+                    <li><strong>Day 5:</strong> Trek down to Siding Village</li>
+                    <li><strong>Day 6:</strong> Drive from Siding back to Pokhara</li>
+                </ul>
+            </div>
 
-      <ul>
-        <li><strong>Location:</strong> Kaski, Annapurna Region, Nepal</li>
-        <li><strong>Maximum Altitude:</strong> Around 4,500m at Mardi Himal View Point</li>
-        <li><strong>Duration:</strong> 4–6 Days</li>
-        <li><strong>Difficulty:</strong> Moderate</li>
-        <li><strong>Best Season:</strong> March–May and September–November</li>
-        <li><strong>Main Attraction:</strong> Machhapuchhre, Annapurna South, Hiunchuli, forest trail</li>
-        <li><strong>Starting Point:</strong> Kande / Dhampus / Phedi from Pokhara</li>
-      </ul>
+            <!-- Right: Map -->
+            <div class="flex-box" style="text-align: center;">
+                <h2>Route Map</h2>
+                <p>The ridge trail towards the base of Machhapuchhre.</p>
+                <div class="map-wrapper">
+                    <img src="./mardi-map.png" alt="Mardi Himal Map" class="map-img">
+                </div>
+                <p style="margin-top: 15px; font-size: 13px; color: #666;">(Standard route via Kande and Siding)</p>
+            </div>
+
+        </div>
     </div>
 
-    <div class="box">
-      <h2>Day-by-Day Itinerary</h2>
-
-      <ul>
-        <li>Day 1: Drive from Pokhara to Kande and trek to Forest Camp</li>
-        <li>Day 2: Trek from Forest Camp to Low Camp</li>
-        <li>Day 3: Trek from Low Camp to High Camp</li>
-        <li>Day 4: Early morning hike to Mardi Himal View Point and return to High Camp</li>
-        <li>Day 5: Trek down to Siding Village</li>
-        <li>Day 6: Drive from Siding back to Pokhara</li>
-      </ul>
+    <!-- Video Link Tab -->
+    <div id="watch" class="tab-content">
+        <div class="box" style="text-align: center; padding: 60px 20px;">
+            <h2>Experience Mardi Himal Digitally</h2>
+            <p>Watch our cinematic travel vlog to see the trails, camps, and the breathtaking sunrise from the viewpoint.</p>
+            
+            <a href="https://youtu.be/-m2zqBEvtNw?si=rZny6LNyCILCVa0u" target="_blank" class="yt-btn">
+                ▶ Play Video on YouTube
+            </a>
+            
+            <div style="margin-top:30px;">
+                <p style="font-size:15px;">Don't forget to <strong>Subscribe</strong> to Trek Hunters!</p>
+            </div>
+        </div>
     </div>
 
-    <div class="box">
-      <h2>Lodging & Accommodation</h2>
+</div>
 
-      <p>
-        Mardi Himal trail has basic tea houses and lodges available in most
-        stopping points. Rooms are simple but comfortable. During peak season,
-        booking early is recommended because lodges can become full.
-      </p>
+<footer>
+    <p>©️ 2026 Trek Hunters. All Rights Reserved. | Annapurna Adventures</p>
+</footer>
 
-      <table>
-        <tr>
-          <th>Place</th>
-          <th>Lodging Information</th>
-        </tr>
-
-        <tr>
-          <td>Pokhara</td>
-          <td>Hotels, restaurants, and full travel facilities available.</td>
-        </tr>
-
-        <tr>
-          <td>Forest Camp</td>
-          <td>Basic tea houses and simple meals available.</td>
-        </tr>
-
-        <tr>
-          <td>Low Camp</td>
-          <td>Lodges with mountain views and local food available.</td>
-        </tr>
-
-        <tr>
-          <td>High Camp</td>
-          <td>Basic lodges available, but rooms may be limited in peak season.</td>
-        </tr>
-
-        <tr>
-          <td>Siding Village</td>
-          <td>Local homestays and simple accommodation available.</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="box">
-      <h2>Fooding Information</h2>
-
-      <p>
-        Food options are available in tea houses along the trail. The price
-        increases as altitude increases because goods are carried to higher areas.
-      </p>
-
-      <ul>
-        <li>Dal Bhat</li>
-        <li>Noodles</li>
-        <li>Fried Rice</li>
-        <li>Thukpa</li>
-        <li>Tea and Coffee</li>
-        <li>Eggs and Pancakes</li>
-        <li>Hot lemon and boiled water</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Mardi Himal Route Map</h2>
-
-      <p>
-        This roadmap shows the route towards Mardi Himal, including Pokhara,
-        Kande, Forest Camp, Low Camp, High Camp, Mardi Himal View Point,
-        and Siding Village.
-      </p>
-
-      <img src="./mardi-map.png"
-           alt="Mardi Himal Route Map"
-           class="map-img">
-    </div>
-
-    <div class="box">
-      <h2>Estimated Budget</h2>
-
-      <ul>
-        <li><strong>Transport:</strong> Pokhara to Kande and Siding to Pokhara by jeep/bus</li>
-        <li><strong>Food:</strong> Around Rs. 500 – Rs. 1200 per meal depending on altitude</li>
-        <li><strong>Accommodation:</strong> Tea house or basic lodge</li>
-        <li><strong>Guide:</strong> Recommended for safety and route information</li>
-        <li><strong>Extra Cost:</strong> Snacks, hot water, charging, Wi-Fi, and emergency items</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Travel Tips</h2>
-
-      <ul>
-        <li>Carry warm clothes because High Camp and View Point are cold.</li>
-        <li>Start early for Mardi Himal View Point sunrise hike.</li>
-        <li>Carry water bottle, snacks, gloves, and raincoat.</li>
-        <li>Walk slowly to avoid altitude sickness.</li>
-        <li>Respect local culture and keep the trail clean.</li>
-        <li>Book rooms early during peak season.</li>
-      </ul>
-    </div>
-
-    <div class="box">
-      <h2>Watch Trek Video</h2>
-
-      <p>
-        Watch trekking videos and adventure vlogs on Trek Hunters YouTube channel.
-      </p>
-
-      <a href="https://youtu.be/-m2zqBEvtNw?si=rZny6LNyCILCVa0u"
-         target="_blank"
-         class="btn">
-         Visit YouTube Channel
-      </a>
-    </div>
-
-  </div>
-
-  <footer>
-    <p>©️ 2026 Trek Hunters. All Rights Reserved.</p>
-  </footer>
+<script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("show");
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).classList.add("show");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
 
 </body>
 </html>

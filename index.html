@@ -63,20 +63,17 @@
       color:gold;
     }
 
- .hero{
-  height:90vh;
-  background:
-  linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
-  url("./hero.jpg");
-
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
-}
+    .hero{
+      height:90vh;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url("./hero.jpg");
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+    }
 
     .hero-content{
       background:transparent;
@@ -150,22 +147,24 @@
       margin:auto;
     }
 
+    .trek-link{
+      text-decoration:none;
+      color:inherit;
+      display: block;
+    }
+
     .card{
       background:white;
       border-radius:16px;
       overflow:hidden;
       box-shadow:0 5px 18px rgba(0,0,0,0.18);
       transition:0.3s;
+      height: 100%;
     }
 
     .card:hover{
       transform:translateY(-8px);
     }
-
-    .trek-link{
-  text-decoration:none;
-  color:inherit;
-}
 
     .card img{
       width:100%;
@@ -217,36 +216,13 @@
     }
 
     @media(max-width:900px){
-      header{
-        flex-direction:column;
-        gap:18px;
-      }
-
-      nav{
-        text-align:center;
-      }
-
-      nav a{
-        display:inline-block;
-        margin:8px;
-      }
-
-      .hero h1{
-        font-size:45px;
-      }
-
-      .about{
-        flex-direction:column;
-      }
-
-      .about img,
-      .about-text{
-        width:100%;
-      }
-
-      .treks{
-        grid-template-columns:1fr;
-      }
+      header{ flex-direction:column; gap:18px; }
+      nav{ text-align:center; }
+      nav a{ display:inline-block; margin:8px; }
+      .hero h1{ font-size:45px; }
+      .about{ flex-direction:column; }
+      .about img, .about-text{ width:100%; }
+      .treks{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -278,138 +254,88 @@
 
   <section id="about">
     <h2 class="title">About Trek Hunters</h2>
-
     <div class="about">
       <img src="./abouttrek.png" alt="About Trek Hunters">
-
       <div class="about-text">
         <h3>Adventure Begins Here</h3>
-
-        <p>
-          Trek Hunters is a trekking and travel platform that shares real trekking journeys,
-          travel stories, adventure experiences, and trekking guides from Nepal.
-        </p>
-
+        <p>Trek Hunters is a trekking and travel platform that shares real trekking journeys, travel stories, adventure experiences, and trekking guides from Nepal.</p>
         <br>
-
-        <p>
-          Our mission is to inspire travelers to explore mountains, forests, lakes,
-          high passes, and hidden trekking destinations safely and responsibly.
-        </p>
+        <p>Our mission is to inspire travelers to explore mountains, forests, lakes, high passes, and hidden trekking destinations safely and responsibly.</p>
       </div>
     </div>
   </section>
 
   <section id="treks">
     <h2 class="title">Featured Treks</h2>
-
     <div class="treks">
 
-     <a href="manaslu.html" target="_blank" class="trek-link">
-
-  <div class="card">
-
-    <img src="./Manaslucircuit.jpeg" alt="Manaslu Circuit Trek">
-
-    <div class="card-content">
-
-      <h3>Manaslu Circuit</h3>
-
-      <p>
-        Manaslu Circuit is a remote and adventurous trek around Mt. Manaslu.
-        This route offers beautiful Himalayan views, peaceful villages,
-        suspension bridges, forests, and a real mountain trekking experience.
-      </p>
-
-    </div>
-
-  </div>
-
-</a>
-
-     <a href="pachpokhari.html" style="text-decoration:none; color:inherit;">
-
-<div class="card">
-
-  <img src="./pachpokhari.jpeg" alt="Panch Pokhari Trek">
-
-  <div class="card-content">
-
-    <h3>Panch Pokhari</h3>
-
-    <p>
-      Panch Pokhari is famous for its five sacred lakes and peaceful natural beauty.
-      The trek offers green hills, cultural villages, mountain views,
-      and a calm environment away from busy city life.
-    </p>
-
-  </div>
-
-</div>
-
-</a>
-
-      <a href="mardi.html" style="text-decoration:none; color:inherit;">
-
-<div class="card">
-  <img src="./mardi.jpeg" alt="Mardi Himal Trek">
-
-  <div class="card-content">
-    <h3>Mardi Himal</h3>
-
-    <p>
-      Mardi Himal is a short and beautiful trek near the Annapurna region.
-      It is known for close views of Machhapuchhre, peaceful forest trails,
-      ridge walks, and stunning sunrise views.
-    </p>
-  </div>
-</div>
-
-</a>
-
-      <div class="card">
-        <img src="./Tilicho & Thorong-La.jpeg" alt="Tilicho and Thorong-La Trek">
-        <div class="card-content">
-          <h3>Tilicho & Thorong-La</h3>
-          <p>
-            Tilicho and Thorong-La is a high-altitude adventure trek in the Annapurna region.
-            The journey includes Tilicho Lake, one of the highest lakes in the world,
-            and Thorong-La Pass with dramatic mountain landscapes.
-          </p>
+      <!-- 1. Manaslu -->
+      <a href="manaslu.html" class="trek-link">
+        <div class="card">
+          <img src="./Manaslucircuit.jpeg" alt="Manaslu Circuit Trek">
+          <div class="card-content">
+            <h3>Manaslu Circuit</h3>
+            <p>Manaslu Circuit is a remote and adventurous trek around Mt. Manaslu. Beautiful views and suspension bridges await.</p>
+          </div>
         </div>
-      </div>
+      </a>
 
-      <div class="card">
-        <img src="./kanglapass.jpeg" alt="Kang-La Pass Trek">
-        <div class="card-content">
-          <h3>Kang-La Pass</h3>
-          <p>
-            Kang-La Pass is a challenging trekking route in the Manang region.
-            It offers snowy trails, prayer flags, remote villages,
-            high mountain views, and a true Himalayan adventure experience.
-          </p>
+      <!-- 2. Panch Pokhari -->
+      <a href="pachpokhari.html" class="trek-link">
+        <div class="card">
+          <img src="./pachpokhari.jpeg" alt="Panch Pokhari Trek">
+          <div class="card-content">
+            <h3>Panch Pokhari</h3>
+            <p>Famous for five sacred lakes and peaceful natural beauty. A calm environment away from city life.</p>
+          </div>
         </div>
-      </div>
+      </a>
+
+      <!-- 3. Mardi Himal -->
+      <a href="mardi.html" class="trek-link">
+        <div class="card">
+          <img src="./mardi.jpeg" alt="Mardi Himal Trek">
+          <div class="card-content">
+            <h3>Mardi Himal</h3>
+            <p>A short and beautiful trek near Annapurna. Known for close views of Machhapuchhre and ridge walks.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 4. Tilicho & Thorong-La -->
+      <a href="tilicho.html" class="trek-link">
+        <div class="card">
+          <!-- Make sure this image exists in your folder -->
+          <img src="./Tilicho & Thorong-La.jpeg" alt="Tilicho and Thorong-La Trek">
+          <div class="card-content">
+            <h3>Tilicho & Thorong-La</h3>
+            <p>High-altitude adventure including Tilicho Lake and the dramatic Thorong-La Pass.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- 5. Kang-La Pass -->
+      <a href="kang-la.html" class="trek-link">
+        <div class="card">
+          <img src="./kanglapass.jpeg" alt="Kang-La Pass Trek">
+          <div class="card-content">
+            <h3>Kang-La Pass</h3>
+            <p>Challenging route in Manang with snowy trails, prayer flags, and true Himalayan adventure.</p>
+          </div>
+        </div>
+      </a>
 
     </div>
   </section>
 
   <section class="youtube" id="youtube">
     <h2 class="title">YouTube Channel</h2>
-
-    <p>
-      Watch trekking videos, trailers, adventure vlogs,
-      and complete trekking journeys on Trek Hunters.
-    </p>
-
-    <a href="http://www.youtube.com/@TrekkHunters" target="_blank" class="btn">
-      Visit Channel
-    </a>
+    <p>Watch trekking videos, trailers, and complete journeys on Trek Hunters.</p>
+    <a href="http://www.youtube.com/@TrekkHunters" target="_blank" class="btn">Visit Channel</a>
   </section>
 
   <section id="contact">
     <h2 class="title">Contact</h2>
-
     <div class="contact-box">
       <p>Contact Number: 9801046426</p>
       <p>YouTube: Trek Hunters</p>
